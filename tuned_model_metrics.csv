@@ -1,0 +1,5 @@
+metrics,Training,Testing
+Accuracy,1.0,0.89
+Precision,1.0,0.9
+Recall Score,1.0,0.89
+F1 Score,1.0,0.89
