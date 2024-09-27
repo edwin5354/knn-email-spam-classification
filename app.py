@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 # All dataframes
-email_df = pd.read_csv(r'C:\Users\Edwin\Python\bootcamp\Projects\KNN\csv\emails.csv')
+email_df = pd.read_csv('./csv/emails_simplify.csv')
 
 st.title('Email Spam Classification')
 
@@ -23,7 +23,7 @@ email_df.columns
 '''
 st.code(exp_code, language="python")
 
-st.image(r'C:\Users\Edwin\Python\bootcamp\Projects\KNN\images\spam.png')
+st.image('images/spam.png')
 st.write("With such a high number of columns, simpler exploratory techniques are indeed more effective. In this case, analyzing the distribution of spam and non-spam emails is a great starting point. The bar plot illustrates that the dataset contains more than 3,500 non-spam emails (labeled as 0) and approximately 1,500 spam emails (labeled as 1). Exploratory techniques such as the correlation matrix are not ideal given the data's complexity.")
 
 barplot_code = '''
@@ -124,7 +124,7 @@ metrics_df.to_csv('./csv/org_model_metrics.csv', index= False)
 st.code(result_code, language= "python")
 st.write('In this section, a bar plot is created to illustrate the metrics (accuracy, precision, recall, and F1 score) for both training and testing data. The difference between the scores exceeds 5%, indicating that the model is slightly overfitted. You can find the metric scores in the file named org_model_metrics.csv.')
 
-st.image(r'C:\Users\Edwin\Python\bootcamp\Projects\KNN\images\org_metrics.png')
+st.image('./images/org_metrics.png')
 acc_code = '''
 def barplot(df):
     # Set the bar width and positions
@@ -152,7 +152,7 @@ barplot(org_metrics)
 st.code(acc_code, language= "python")
 
 st.write('Based on the metrics mentioned above, a confusion matrix is plotted to evaluate the performance of the classification algorithm. This visualization helps in understanding the true positives and true negatives, providing insights into how well the model is predicting each class.')
-st.image(r"C:\Users\Edwin\Python\bootcamp\Projects\KNN\images\confusion_matrix.png")
+st.image("./images/confusion_matrix.png")
 
 confu_code = '''
 # Confusion matrix for the KNN model
@@ -169,7 +169,7 @@ st.code(confu_code, language="python")
 st.subheader('e) Hyperparameter Tuning')
 st.write("Let’s proceed with hyperparameter tuning using techniques such as grid search or random search to enhance model performance. The optimal parameters for the KNN model are {'metric': 'minkowski', 'n_neighbors': 3, 'weights': 'distance'}. Now, let's repeat the training and testing process with these tuned parameters. Below is a bar plot that illustrates the performance metrics of the optimized KNN model.")
 
-st.image(r'C:\Users\Edwin\Python\bootcamp\Projects\KNN\images\tuned_metrics.png')
+st.image('./images/tuned_metrics.png')
 
 tune_code = '''
 from sklearn.model_selection import GridSearchCV
